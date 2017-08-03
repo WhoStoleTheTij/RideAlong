@@ -97,28 +97,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="f0l-bi-v1Z">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="f0l-bi-v1Z">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-FU-alU">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="444" id="a90-ll-0zw"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1M4-xg-FfY">
-                                        <rect key="frame" x="0.0" y="469" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="478" width="375" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Mth-57-CPR"/>
+                                        </constraints>
                                         <state key="normal" title="Start Route">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startRoute:" destination="RTC-66-SqU" eventType="touchUpInside" id="g4d-z0-PfU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCz-rj-kJJ">
                                         <rect key="frame" x="0.0" y="524" width="375" height="30"/>
                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Take Photo">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Lyb-7h-ceC"/>
+                                        </constraints>
+                                        <state key="normal" title="Add Image">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addImage:" destination="RTC-66-SqU" eventType="touchUpInside" id="UdO-vP-drb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -131,10 +140,33 @@
                             <constraint firstItem="f0l-bi-v1Z" firstAttribute="leading" secondItem="Cdz-Zg-cf0" secondAttribute="leading" id="wva-Ff-SCA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addImageButton" destination="yCz-rj-kJJ" id="QVj-a8-ivV"/>
+                        <outlet property="mapView" destination="1bF-FU-alU" id="o7b-Jq-v6b"/>
+                        <outlet property="startRouteButton" destination="1M4-xg-FfY" id="fMQ-UP-02K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eub-Ql-o0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2638" y="-716"/>
+        </scene>
+        <!--Add Image View Controller-->
+        <scene sceneID="sM6-Ex-LXE">
+            <objects>
+                <viewController id="Mwq-Qn-6kY" customClass="AddImageViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2El-Pl-oN2"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZrO-jk-f32"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7gy-fA-wOe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yB5-JT-hnq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3569" y="-716"/>
         </scene>
         <!--My Routes-->
         <scene sceneID="KGS-Fr-iaQ">
@@ -153,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="764" y="124"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Route Table View Controller-->
         <scene sceneID="HQt-Hj-BV2">
             <objects>
-                <tableViewController id="nFC-UJ-yEQ" sceneMemberID="viewController">
+                <tableViewController id="nFC-UJ-yEQ" customClass="RouteTableViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Na1-aJ-thm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,10 +214,10 @@
             </objects>
             <point key="canvasLocation" x="1731" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--View Route View Controller-->
         <scene sceneID="K5L-he-Zc6">
             <objects>
-                <viewController id="e69-hm-l1M" sceneMemberID="viewController">
+                <viewController id="e69-hm-l1M" customClass="ViewRouteViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IaY-gP-LoM"/>
                         <viewControllerLayoutGuide type="bottom" id="v7W-fh-Kkm"/>
@@ -205,6 +237,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KsL-k8-hMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2637.5999999999999" y="123.68815592203899"/>
+        </scene>
+        <!--Image Collection View Controller-->
+        <scene sceneID="X9b-YL-Doq">
+            <objects>
+                <collectionViewController id="ZZL-0E-67j" customClass="ImageCollectionViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1fR-Kk-bhI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kwg-1m-CPL">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="car-kT-eeS" customClass="ImageCollectionViewCell" customModule="RideAlong" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UIY-nr-Ktx">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="UIY-nr-Ktx" firstAttribute="leading" secondItem="car-kT-eeS" secondAttribute="leading" id="ZX3-tV-1mY"/>
+                                    <constraint firstAttribute="bottom" secondItem="UIY-nr-Ktx" secondAttribute="bottom" id="gKN-dF-Y2X"/>
+                                    <constraint firstItem="UIY-nr-Ktx" firstAttribute="top" secondItem="car-kT-eeS" secondAttribute="top" id="s62-5k-9dN"/>
+                                    <constraint firstAttribute="trailing" secondItem="UIY-nr-Ktx" secondAttribute="trailing" id="tX9-gQ-TIt"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="UIY-nr-Ktx" id="5Pf-ga-epX"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ZZL-0E-67j" id="CQi-Vm-UR5"/>
+                            <outlet property="delegate" destination="ZZL-0E-67j" id="dDQ-OV-zjj"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ezI-kN-VYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3589.5999999999999" y="125.4872563718141"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="f34-lF-uXr">
+            <objects>
+                <viewController id="fxe-R4-LG2" customClass="PhotoViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hLq-Jn-kSa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hl5-vX-1ZM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W4s-WX-VSF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="381-fL-pZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4388" y="126"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s5g-Hw-V0L">

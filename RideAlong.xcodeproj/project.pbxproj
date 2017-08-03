@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		412198101F310AE200A2467D /* MainRouteControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121980F1F310AE200A2467D /* MainRouteControllerViewController.swift */; };
+		4155E9151F33A6B900AA161E /* ViewRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9141F33A6B900AA161E /* ViewRouteViewController.swift */; };
+		4155E9181F33A79F00AA161E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9161F33A79F00AA161E /* Model.xcdatamodeld */; };
+		4155E91A1F33AE3800AA161E /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9191F33AE3800AA161E /* AddImageViewController.swift */; };
+		4155E91C1F33AE6900AA161E /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E91B1F33AE6900AA161E /* RouteTableViewController.swift */; };
+		4155E91E1F33AEA100AA161E /* ImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E91D1F33AEA100AA161E /* ImageCollectionViewController.swift */; };
+		4155E9201F33AEC000AA161E /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E91F1F33AEC000AA161E /* PhotoViewController.swift */; };
+		4155E9231F33AEF300AA161E /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9221F33AEF300AA161E /* ImageCollectionViewCell.swift */; };
 		415AD4E41F2DFC7500E791CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AD4E31F2DFC7500E791CD /* AppDelegate.swift */; };
 		415AD4E61F2DFC7500E791CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AD4E51F2DFC7500E791CD /* ViewController.swift */; };
 		415AD4E91F2DFC7500E791CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415AD4E71F2DFC7500E791CD /* Main.storyboard */; };
@@ -17,6 +24,13 @@
 
 /* Begin PBXFileReference section */
 		4121980F1F310AE200A2467D /* MainRouteControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouteControllerViewController.swift; sourceTree = "<group>"; };
+		4155E9141F33A6B900AA161E /* ViewRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRouteViewController.swift; sourceTree = "<group>"; };
+		4155E9171F33A79F00AA161E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		4155E9191F33AE3800AA161E /* AddImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
+		4155E91B1F33AE6900AA161E /* RouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
+		4155E91D1F33AEA100AA161E /* ImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewController.swift; sourceTree = "<group>"; };
+		4155E91F1F33AEC000AA161E /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		4155E9221F33AEF300AA161E /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		415AD4E01F2DFC7500E791CD /* RideAlong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideAlong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415AD4E31F2DFC7500E791CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		415AD4E51F2DFC7500E791CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				4121980F1F310AE200A2467D /* MainRouteControllerViewController.swift */,
+				4155E9191F33AE3800AA161E /* AddImageViewController.swift */,
 			);
 			name = "Route creation";
 			sourceTree = "<group>";
@@ -48,6 +63,10 @@
 		410548521F32500B00942A6A /* Route Review */ = {
 			isa = PBXGroup;
 			children = (
+				4155E9141F33A6B900AA161E /* ViewRouteViewController.swift */,
+				4155E91B1F33AE6900AA161E /* RouteTableViewController.swift */,
+				4155E91D1F33AEA100AA161E /* ImageCollectionViewController.swift */,
+				4155E91F1F33AEC000AA161E /* PhotoViewController.swift */,
 			);
 			name = "Route Review";
 			sourceTree = "<group>";
@@ -59,6 +78,14 @@
 				410548511F324FF800942A6A /* Route creation */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4155E9211F33AED300AA161E /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4155E9221F33AEF300AA161E /* ImageCollectionViewCell.swift */,
+			);
+			name = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		415AD4D71F2DFC7500E791CD = {
@@ -80,6 +107,7 @@
 		415AD4E21F2DFC7500E791CD /* RideAlong */ = {
 			isa = PBXGroup;
 			children = (
+				4155E9211F33AED300AA161E /* Custom Cells */,
 				4121980E1F310AA000A2467D /* View Controllers */,
 				415AD4E31F2DFC7500E791CD /* AppDelegate.swift */,
 				415AD4E51F2DFC7500E791CD /* ViewController.swift */,
@@ -87,6 +115,7 @@
 				415AD4EA1F2DFC7500E791CD /* Assets.xcassets */,
 				415AD4EC1F2DFC7500E791CD /* LaunchScreen.storyboard */,
 				415AD4EF1F2DFC7500E791CD /* Info.plist */,
+				4155E9161F33A79F00AA161E /* Model.xcdatamodeld */,
 			);
 			path = RideAlong;
 			sourceTree = "<group>";
@@ -165,6 +194,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				415AD4E61F2DFC7500E791CD /* ViewController.swift in Sources */,
+				4155E9151F33A6B900AA161E /* ViewRouteViewController.swift in Sources */,
+				4155E91A1F33AE3800AA161E /* AddImageViewController.swift in Sources */,
+				4155E9181F33A79F00AA161E /* Model.xcdatamodeld in Sources */,
+				4155E91E1F33AEA100AA161E /* ImageCollectionViewController.swift in Sources */,
+				4155E9201F33AEC000AA161E /* PhotoViewController.swift in Sources */,
+				4155E9231F33AEF300AA161E /* ImageCollectionViewCell.swift in Sources */,
+				4155E91C1F33AE6900AA161E /* RouteTableViewController.swift in Sources */,
 				412198101F310AE200A2467D /* MainRouteControllerViewController.swift in Sources */,
 				415AD4E41F2DFC7500E791CD /* AppDelegate.swift in Sources */,
 			);
@@ -333,6 +369,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4155E9161F33A79F00AA161E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4155E9171F33A79F00AA161E /* Model.xcdatamodel */,
+			);
+			currentVersion = 4155E9171F33A79F00AA161E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 415AD4D81F2DFC7500E791CD /* Project object */;
 }
