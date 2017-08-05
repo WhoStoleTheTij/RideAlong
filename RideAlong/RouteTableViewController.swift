@@ -7,17 +7,41 @@
 //
 
 import UIKit
+import CoreData
 
 class RouteTableViewController: UITableViewController {
 
+    var stack: CoreDataHandler! = nil
+    
+    var routes = [Route]()
+    
+    var indexPathToDelete: NSIndexPath? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.stack = appDelegate.stack
+        
+        self.routes = self.fetchRoutes()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    //Mark: fetch the routes
+    func fetchRoutes() -> [Route]{
+        
+        var routes = [Route]()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Route")
+        
+        routes = try! self.stack.context.fetch(fetchRequest) as! [Route]
+        
+        return routes
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,58 +53,66 @@ class RouteTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.routes.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let route = self.routes[indexPath.row] 
+        print(route)
+        cell.imageView?.image = UIImage(named: "navigation")
+        cell.textLabel?.text = route.name
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
+    //Mark: enable swipe delete
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        if editingStyle == .delete{
+            self.indexPathToDelete = indexPath as NSIndexPath
+            let routeToDelete = self.routes[indexPath.row]
+            self.confirmDelete(route: routeToDelete)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    //Mark: confirmation of route delete
+    func confirmDelete(route: Route){
+        let alert = UIAlertController(title: "Delete Route", message: "Are you sure you want to delete \(route.name!)?", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title:"Delete", style: .destructive, handler: {_ in self.handleRouteDelete()} )
+        let cancelAction = UIAlertAction(title:"Cancel", style: .cancel, handler: nil )
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion:nil)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    //Mark: delete the route
+    func handleRouteDelete(){
+        let route = self.routes[(indexPathToDelete?.row)!]
+        
+        self.stack.deleteRoute(routes: [route])
+        self.tableView.reloadData()
     }
-    */
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let route = self.routes[indexPath.row]
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        let viewRouteViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewRouteViewController") as! ViewRouteViewController
+        viewRouteViewController.route = route
+        self.navigationController?.pushViewController(viewRouteViewController, animated: true)
+        
+        
+    }
+    
 
     /*
     // MARK: - Navigation

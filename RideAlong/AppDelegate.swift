@@ -13,9 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var stack = CoreDataHandler(modelName: "Model")
+    
+    var reachability: Reachability?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.reachability = Reachability.forInternetConnection()
+        self.reachability!.startNotifier()
+        
         return true
     }
 
@@ -39,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func hasInternetConnection() -> Bool{
+        return self.reachability!.currentReachabilityStatus().rawValue != NotReachable.rawValue
     }
 
 
