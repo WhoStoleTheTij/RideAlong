@@ -186,7 +186,7 @@
                                             <constraint firstAttribute="height" constant="30" id="W7p-kM-8hI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <state key="normal" title="Take Photo">
+                                        <state key="normal" title="Add Photo">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -287,39 +287,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fad-tO-BLX">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f0j-9s-dku">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f0j-9s-dku">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
-                                    </mapView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um9-vS-hXa">
-                                        <rect key="frame" x="0.0" y="524" width="375" height="30"/>
-                                        <color key="backgroundColor" red="0.98039215690000003" green="0.59999999999999998" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="t4C-Fa-doZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="View Photos">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="ZZL-0E-67j" kind="show" identifier="showRoutePhotoSegue" id="sTl-gc-oIS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fad-tO-BLX" secondAttribute="trailing" id="Gto-Yu-gYX"/>
-                            <constraint firstItem="v7W-fh-Kkm" firstAttribute="top" secondItem="fad-tO-BLX" secondAttribute="bottom" id="PUG-us-EKr"/>
-                            <constraint firstItem="fad-tO-BLX" firstAttribute="leading" secondItem="v3h-OP-wsB" secondAttribute="leading" id="Vr6-wZ-gqw"/>
-                            <constraint firstItem="fad-tO-BLX" firstAttribute="top" secondItem="IaY-gP-LoM" secondAttribute="bottom" id="uR4-6Z-k7e"/>
+                            <constraint firstItem="v7W-fh-Kkm" firstAttribute="top" secondItem="f0j-9s-dku" secondAttribute="bottom" id="Gdn-Ep-kDQ"/>
+                            <constraint firstItem="f0j-9s-dku" firstAttribute="top" secondItem="IaY-gP-LoM" secondAttribute="bottom" id="VE7-2Q-qMk"/>
+                            <constraint firstItem="f0j-9s-dku" firstAttribute="leading" secondItem="v3h-OP-wsB" secondAttribute="leading" id="f0f-3e-Ydh"/>
+                            <constraint firstAttribute="trailing" secondItem="f0j-9s-dku" secondAttribute="trailing" id="jdY-h3-59D"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="f0j-9s-dku" id="1s7-L2-iIh"/>
+                        <segue destination="fxe-R4-LG2" kind="show" id="key-KL-e19"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KsL-k8-hMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -329,7 +311,7 @@
         <!--Image Collection View Controller-->
         <scene sceneID="X9b-YL-Doq">
             <objects>
-                <collectionViewController id="ZZL-0E-67j" customClass="ImageCollectionViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="ImageCollectionViewController" id="ZZL-0E-67j" customClass="ImageCollectionViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="1fR-Kk-bhI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,12 +354,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezI-kN-VYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3589.5999999999999" y="125.4872563718141"/>
+            <point key="canvasLocation" x="4594" y="126"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="f34-lF-uXr">
             <objects>
-                <viewController id="fxe-R4-LG2" customClass="PhotoViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoViewController" id="fxe-R4-LG2" customClass="PhotoViewController" customModule="RideAlong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hLq-Jn-kSa"/>
                         <viewControllerLayoutGuide type="bottom" id="Hl5-vX-1ZM"/>
@@ -385,12 +367,45 @@
                     <view key="view" contentMode="scaleToFill" id="W4s-WX-VSF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2iH-GM-IOT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r01-ON-DDI">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4H-hz-JkR">
+                                        <rect key="frame" x="0.0" y="524" width="375" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="f5M-iD-FKu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="More photos of this location">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loadMorePhotos:" destination="fxe-R4-LG2" eventType="touchUpInside" id="Xbd-oB-1Vy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2iH-GM-IOT" firstAttribute="leading" secondItem="W4s-WX-VSF" secondAttribute="leading" id="3FX-tt-hGt"/>
+                            <constraint firstAttribute="trailing" secondItem="2iH-GM-IOT" secondAttribute="trailing" id="67C-IZ-pnB"/>
+                            <constraint firstItem="2iH-GM-IOT" firstAttribute="top" secondItem="hLq-Jn-kSa" secondAttribute="bottom" id="HVk-NS-V2a"/>
+                            <constraint firstItem="Hl5-vX-1ZM" firstAttribute="top" secondItem="2iH-GM-IOT" secondAttribute="bottom" id="jXJ-7k-yCm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="r01-ON-DDI" id="9Ai-RD-DFn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="381-fL-pZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4388" y="126"/>
+            <point key="canvasLocation" x="3616.8000000000002" y="125.4872563718141"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s5g-Hw-V0L">

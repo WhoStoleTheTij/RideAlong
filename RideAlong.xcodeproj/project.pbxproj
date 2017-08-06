@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		412198101F310AE200A2467D /* MainRouteControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121980F1F310AE200A2467D /* MainRouteControllerViewController.swift */; };
+		4151F04F1F3738F300E0F539 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151F04E1F3738F300E0F539 /* ConnectionHandler.swift */; };
 		4155E9151F33A6B900AA161E /* ViewRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9141F33A6B900AA161E /* ViewRouteViewController.swift */; };
 		4155E9181F33A79F00AA161E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9161F33A79F00AA161E /* Model.xcdatamodeld */; };
 		4155E91A1F33AE3800AA161E /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9191F33AE3800AA161E /* AddImageViewController.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		4121980F1F310AE200A2467D /* MainRouteControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouteControllerViewController.swift; sourceTree = "<group>"; };
+		4151F04E1F3738F300E0F539 /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
 		4155E9141F33A6B900AA161E /* ViewRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRouteViewController.swift; sourceTree = "<group>"; };
 		4155E9171F33A79F00AA161E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		4155E9191F33AE3800AA161E /* AddImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		4151F04D1F3738E800E0F539 /* Connections */ = {
+			isa = PBXGroup;
+			children = (
+				4151F04E1F3738F300E0F539 /* ConnectionHandler.swift */,
+			);
+			name = Connections;
+			sourceTree = "<group>";
+		};
 		4155E9211F33AED300AA161E /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 		415AD4E21F2DFC7500E791CD /* RideAlong */ = {
 			isa = PBXGroup;
 			children = (
+				4151F04D1F3738E800E0F539 /* Connections */,
 				417745B71F35F27D000E06E8 /* Helpers */,
 				4177459E1F35D7B3000E06E8 /* Data */,
 				4155E9211F33AED300AA161E /* Custom Cells */,
@@ -254,6 +265,7 @@
 				417745A11F35D7CA000E06E8 /* Constants.swift in Sources */,
 				417745D11F3616BA000E06E8 /* Route+CoreDataClass.swift in Sources */,
 				4155E9151F33A6B900AA161E /* ViewRouteViewController.swift in Sources */,
+				4151F04F1F3738F300E0F539 /* ConnectionHandler.swift in Sources */,
 				4155E91A1F33AE3800AA161E /* AddImageViewController.swift in Sources */,
 				4155E9181F33A79F00AA161E /* Model.xcdatamodeld in Sources */,
 				4155E91E1F33AEA100AA161E /* ImageCollectionViewController.swift in Sources */,

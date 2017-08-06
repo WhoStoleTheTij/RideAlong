@@ -117,6 +117,7 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
             self.addImageButton.isEnabled = false
             self.route.points = self.locationPoints as NSArray
             self.stack.save()
+            self.navigationController?.popViewController(animated: true)
         }else{
             
             if (self.nameTextfield.text?.isEmpty)!{

@@ -108,6 +108,7 @@ extension CoreDataHandler{
         for photo in photos{
             self.context.delete(photo)
         }
+        self.save()
     }
     
     func deleteRoute(routes: [Route]){
@@ -115,6 +116,7 @@ extension CoreDataHandler{
         for route in routes{
             self.context.delete(route)
         }
+        self.save()
         
     }
     

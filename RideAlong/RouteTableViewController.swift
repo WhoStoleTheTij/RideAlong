@@ -23,13 +23,19 @@ class RouteTableViewController: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.stack = appDelegate.stack
         
-        self.routes = self.fetchRoutes()
+        //self.routes = self.fetchRoutes()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    //Mark: reload the routes when the view is displayed
+    override func viewDidAppear(_ animated: Bool) {
+        self.routes = self.fetchRoutes()
+        self.tableView.reloadData()
     }
     
     //Mark: fetch the routes
@@ -66,7 +72,7 @@ class RouteTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let route = self.routes[indexPath.row] 
-        print(route)
+        
         cell.imageView?.image = UIImage(named: "navigation")
         cell.textLabel?.text = route.name
         
@@ -97,9 +103,9 @@ class RouteTableViewController: UITableViewController {
     
     //Mark: delete the route
     func handleRouteDelete(){
-        let route = self.routes[(indexPathToDelete?.row)!]
-        
-        self.stack.deleteRoute(routes: [route])
+        let tmpRoute = self.routes[(indexPathToDelete?.row)!]
+        self.routes.remove(at: (indexPathToDelete?.row)!)
+        self.stack.deleteRoute(routes: [tmpRoute])
         self.tableView.reloadData()
     }
 

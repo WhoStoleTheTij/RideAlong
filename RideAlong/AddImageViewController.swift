@@ -53,15 +53,33 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         pickerController.sourceType = .camera
         self.present(pickerController, animated: true, completion: nil)
     }
+    
+    func photoAlbum(){
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = .photoLibrary
+        self.present(pickerController, animated: true, completion: nil)
+    }
 
     @IBAction func takePhoto(_ sender: Any) {
         
+        
+        
+        let alert = UIAlertController(title: "Add Image", message:"", preferredStyle: .actionSheet)
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera){
-            self.takePhoto()
-        }else{
-            ErrorMessage.displayErrorMessage(message: "This device is not able to take photos", view: self)
+            
+            let photoAction = UIAlertAction(title:"Take Photo", style: .default, handler: {_ in self.takePhoto()})
+            alert.addAction(photoAction)
         }
         
+        let albumAction = UIAlertAction(title: "Photo Album", style: .default, handler: {_ in self.photoAlbum()})
+        alert.addAction(albumAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated:true, completion:nil)
         
     }
     
@@ -84,9 +102,11 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
             if self.imageView.image != UIImage(named: "defaultImage"){
                 
                 let photo = Photo(latitude: self.coordinates.latitude, longitude: self.coordinates.longitude, context: self.stack.context)
+                photo.image = UIImagePNGRepresentation(self.imageView.image!) as NSData?
                 route.addToPhotos(photo)
                 photo.route = route
-                
+                self.stack.save()
+                self.navigationController?.popViewController(animated: true)
             }else{
                 ErrorMessage.displayErrorMessage(message: "There is no image to save", view: self)
             }
