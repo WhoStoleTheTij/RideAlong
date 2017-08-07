@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		412198101F310AE200A2467D /* MainRouteControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121980F1F310AE200A2467D /* MainRouteControllerViewController.swift */; };
+		412C30841F38F33300FC8A6C /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C30801F38F33300FC8A6C /* Photo+CoreDataClass.swift */; };
+		412C30851F38F33300FC8A6C /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C30811F38F33300FC8A6C /* Photo+CoreDataProperties.swift */; };
+		412C30861F38F33300FC8A6C /* Route+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C30821F38F33300FC8A6C /* Route+CoreDataClass.swift */; };
+		412C30871F38F33300FC8A6C /* Route+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C30831F38F33300FC8A6C /* Route+CoreDataProperties.swift */; };
+		412C30891F38F36C00FC8A6C /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C30881F38F36C00FC8A6C /* PhotoItem.swift */; };
 		4151F04F1F3738F300E0F539 /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151F04E1F3738F300E0F539 /* ConnectionHandler.swift */; };
 		4155E9151F33A6B900AA161E /* ViewRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9141F33A6B900AA161E /* ViewRouteViewController.swift */; };
 		4155E9181F33A79F00AA161E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4155E9161F33A79F00AA161E /* Model.xcdatamodeld */; };
@@ -25,14 +30,15 @@
 		417745A21F35D7CA000E06E8 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745A01F35D7CA000E06E8 /* CoreDataHandler.swift */; };
 		417745B61F35DC44000E06E8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 417745B51F35DC44000E06E8 /* Reachability.m */; };
 		417745B91F35F2A2000E06E8 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745B81F35F2A2000E06E8 /* ErrorMessage.swift */; };
-		417745CF1F3616BA000E06E8 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745CB1F3616BA000E06E8 /* Photo+CoreDataClass.swift */; };
-		417745D01F3616BA000E06E8 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745CC1F3616BA000E06E8 /* Photo+CoreDataProperties.swift */; };
-		417745D11F3616BA000E06E8 /* Route+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745CD1F3616BA000E06E8 /* Route+CoreDataClass.swift */; };
-		417745D21F3616BA000E06E8 /* Route+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745CE1F3616BA000E06E8 /* Route+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4121980F1F310AE200A2467D /* MainRouteControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouteControllerViewController.swift; sourceTree = "<group>"; };
+		412C30801F38F33300FC8A6C /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		412C30811F38F33300FC8A6C /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		412C30821F38F33300FC8A6C /* Route+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Route+CoreDataClass.swift"; sourceTree = "<group>"; };
+		412C30831F38F33300FC8A6C /* Route+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Route+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		412C30881F38F36C00FC8A6C /* PhotoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
 		4151F04E1F3738F300E0F539 /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
 		4155E9141F33A6B900AA161E /* ViewRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRouteViewController.swift; sourceTree = "<group>"; };
 		4155E9171F33A79F00AA161E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -54,10 +60,6 @@
 		417745B41F35DC44000E06E8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		417745B51F35DC44000E06E8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		417745B81F35F2A2000E06E8 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
-		417745CB1F3616BA000E06E8 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		417745CC1F3616BA000E06E8 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		417745CD1F3616BA000E06E8 /* Route+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Route+CoreDataClass.swift"; sourceTree = "<group>"; };
-		417745CE1F3616BA000E06E8 /* Route+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Route+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				4177459F1F35D7CA000E06E8 /* Constants.swift */,
 				417745A01F35D7CA000E06E8 /* CoreDataHandler.swift */,
 				417745B31F35DC43000E06E8 /* RideAlong-Bridging-Header.h */,
+				412C30881F38F36C00FC8A6C /* PhotoItem.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -175,10 +178,10 @@
 		417745C21F36018D000E06E8 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				417745CB1F3616BA000E06E8 /* Photo+CoreDataClass.swift */,
-				417745CC1F3616BA000E06E8 /* Photo+CoreDataProperties.swift */,
-				417745CD1F3616BA000E06E8 /* Route+CoreDataClass.swift */,
-				417745CE1F3616BA000E06E8 /* Route+CoreDataProperties.swift */,
+				412C30801F38F33300FC8A6C /* Photo+CoreDataClass.swift */,
+				412C30811F38F33300FC8A6C /* Photo+CoreDataProperties.swift */,
+				412C30821F38F33300FC8A6C /* Route+CoreDataClass.swift */,
+				412C30831F38F33300FC8A6C /* Route+CoreDataProperties.swift */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -257,24 +260,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				417745CF1F3616BA000E06E8 /* Photo+CoreDataClass.swift in Sources */,
-				417745D21F3616BA000E06E8 /* Route+CoreDataProperties.swift in Sources */,
 				415AD4E61F2DFC7500E791CD /* ViewController.swift in Sources */,
 				417745A21F35D7CA000E06E8 /* CoreDataHandler.swift in Sources */,
+				412C30841F38F33300FC8A6C /* Photo+CoreDataClass.swift in Sources */,
 				417745B91F35F2A2000E06E8 /* ErrorMessage.swift in Sources */,
 				417745A11F35D7CA000E06E8 /* Constants.swift in Sources */,
-				417745D11F3616BA000E06E8 /* Route+CoreDataClass.swift in Sources */,
+				412C30851F38F33300FC8A6C /* Photo+CoreDataProperties.swift in Sources */,
 				4155E9151F33A6B900AA161E /* ViewRouteViewController.swift in Sources */,
 				4151F04F1F3738F300E0F539 /* ConnectionHandler.swift in Sources */,
 				4155E91A1F33AE3800AA161E /* AddImageViewController.swift in Sources */,
 				4155E9181F33A79F00AA161E /* Model.xcdatamodeld in Sources */,
 				4155E91E1F33AEA100AA161E /* ImageCollectionViewController.swift in Sources */,
+				412C30891F38F36C00FC8A6C /* PhotoItem.swift in Sources */,
 				4155E9201F33AEC000AA161E /* PhotoViewController.swift in Sources */,
 				4155E9231F33AEF300AA161E /* ImageCollectionViewCell.swift in Sources */,
 				4155E91C1F33AE6900AA161E /* RouteTableViewController.swift in Sources */,
 				412198101F310AE200A2467D /* MainRouteControllerViewController.swift in Sources */,
+				412C30871F38F33300FC8A6C /* Route+CoreDataProperties.swift in Sources */,
+				412C30861F38F33300FC8A6C /* Route+CoreDataClass.swift in Sources */,
 				415AD4E41F2DFC7500E791CD /* AppDelegate.swift in Sources */,
-				417745D01F3616BA000E06E8 /* Photo+CoreDataProperties.swift in Sources */,
 				417745B61F35DC44000E06E8 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

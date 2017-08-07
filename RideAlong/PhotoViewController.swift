@@ -53,6 +53,32 @@ class PhotoViewController: UIViewController {
             
             if error == nil{
                 
+                let photos = results?["photos"] as! [AnyObject]
+                
+                if photos.count > 0{
+                    
+                    let pageCount = results?["pageCount"] as! Int
+                    
+                    var photoCollection = [PhotoItem]()
+                    
+                    for photo in photos{
+                        
+                        let photo = PhotoItem(url: photo["url_m"] as? String)
+                        photoCollection.append(photo) 
+                        
+                    }
+                    
+                    let imageCollectionViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImageCollectionViewController") as! ImageCollectionViewController
+                    imageCollectionViewController.photos = photoCollection
+                    imageCollectionViewController.pageCount = pageCount
+                    
+                    self.navigationController?.pushViewController(imageCollectionViewController, animated:true)
+                    
+                    
+                }else{
+                    
+                }
+                
             }else{
                 ErrorMessage.displayErrorMessage(message: error!, view: self)
             }

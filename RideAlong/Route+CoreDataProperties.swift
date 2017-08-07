@@ -2,7 +2,7 @@
 //  Route+CoreDataProperties.swift
 //  RideAlong
 //
-//  Created by Richard H on 05/08/2017.
+//  Created by Richard H on 07/08/2017.
 //  Copyright © 2017 Richard H. All rights reserved.
 //
 
@@ -16,8 +16,8 @@ extension Route {
         return NSFetchRequest<Route>(entityName: "Route")
     }
 
-    @NSManaged public var points: NSArray?
     @NSManaged public var name: String?
+    @NSManaged public var points: NSArray?
     @NSManaged public var photos: NSSet?
 
 }

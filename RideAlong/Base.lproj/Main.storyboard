@@ -323,7 +323,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="car-kT-eeS" customClass="ImageCollectionViewCell" customModule="RideAlong" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="car-kT-eeS" customClass="ImageCollectionViewCell" customModule="RideAlong" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -333,15 +333,22 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UIY-nr-Ktx">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mXd-qY-nlu">
+                                            <rect key="frame" x="32" y="32" width="37" height="37"/>
+                                            <color key="color" red="0.0" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="mXd-qY-nlu" firstAttribute="top" secondItem="UIY-nr-Ktx" secondAttribute="bottom" constant="-68" id="0Uc-aH-Mzo"/>
+                                    <constraint firstItem="mXd-qY-nlu" firstAttribute="leading" secondItem="UIY-nr-Ktx" secondAttribute="trailing" constant="-68" id="2Mu-nt-D9V"/>
                                     <constraint firstItem="UIY-nr-Ktx" firstAttribute="leading" secondItem="car-kT-eeS" secondAttribute="leading" id="ZX3-tV-1mY"/>
                                     <constraint firstAttribute="bottom" secondItem="UIY-nr-Ktx" secondAttribute="bottom" id="gKN-dF-Y2X"/>
                                     <constraint firstItem="UIY-nr-Ktx" firstAttribute="top" secondItem="car-kT-eeS" secondAttribute="top" id="s62-5k-9dN"/>
                                     <constraint firstAttribute="trailing" secondItem="UIY-nr-Ktx" secondAttribute="trailing" id="tX9-gQ-TIt"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="activityView" destination="mXd-qY-nlu" id="Auu-BO-rUu"/>
                                     <outlet property="imageView" destination="UIY-nr-Ktx" id="5Pf-ga-epX"/>
                                 </connections>
                             </collectionViewCell>
@@ -351,6 +358,9 @@
                             <outlet property="delegate" destination="ZZL-0E-67j" id="dDQ-OV-zjj"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="flowLayout" destination="Kwg-1m-CPL" id="p0Y-4K-5rQ"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezI-kN-VYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -372,10 +382,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r01-ON-DDI">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4H-hz-JkR">
-                                        <rect key="frame" x="0.0" y="524" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="493" width="375" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="f5M-iD-FKu"/>
@@ -388,6 +398,12 @@
                                             <action selector="loadMorePhotos:" destination="fxe-R4-LG2" eventType="touchUpInside" id="Xbd-oB-1Vy"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPI-es-aSd">
+                                        <rect key="frame" x="0.0" y="539" width="375" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="PBW-kY-sZs"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -401,6 +417,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="r01-ON-DDI" id="9Ai-RD-DFn"/>
+                        <segue destination="ZZL-0E-67j" kind="show" id="9ym-KV-FN8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="381-fL-pZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
