@@ -112,7 +112,8 @@ class ViewRouteViewController: UIViewController, CLLocationManagerDelegate, MKMa
             self.mapView.deselectAnnotation(point, animated: true)
             
             let photoViewController = self.storyboard?.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
-            photoViewController.photo = photo
+            photoViewController.photoPhoto = photo
+            photoViewController.route = self.route
             
             self.navigationController?.pushViewController(photoViewController, animated: true)
             

@@ -16,6 +16,13 @@ class ImageCollectionViewController: UICollectionViewController, UICollectionVie
     
     var pageCount: Int!
     
+    let connectionHandler = ConnectionHandler()
+    
+    var pageNum: Int = 2
+    
+    var photo: Photo!
+    var route: Route!
+    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     
@@ -57,6 +64,9 @@ class ImageCollectionViewController: UICollectionViewController, UICollectionVie
         // Configure the cell
         cell.activityView.startAnimating()
         cell.activityView.isHidden = false
+        if cell.imageView.image != UIImage(named: "defaultString"){
+            cell.imageView.image = UIImage(named: "defaultImage")
+        }
         
         var urlString: String?
         
@@ -78,6 +88,49 @@ class ImageCollectionViewController: UICollectionViewController, UICollectionVie
          load images if the scroll direction is down
          
          */
+        if indexPath.row == photos.count - 4{
+            
+            let latitude = self.photo.latitude
+            let longitude = self.photo.longitude
+            
+            self.connectionHandler.fetchImagesForLocation(longitude: String(longitude), latitude: String(latitude), pageNumber: pageNum, completionHandler: { (results, error) in
+                
+                if error == nil{
+                    
+                    let photoCollection = results?["photos"] as! [AnyObject]
+                    
+                    if photoCollection.count > 0{
+                        
+                        for photo in photoCollection{
+                            
+                            let photo = PhotoItem(url: photo["url_m"] as? String)
+                            self.photos.append(photo)
+                            
+                        }
+                        
+                        DispatchQueue.main.async {
+                            //self.collectionView?.reloadData()
+                            //self.collectionView?.layoutIfNeeded()
+                            //self.collectionView?.numberOfItems(inSection: 0)
+                            //self.collectionView?.reloadItems(at: (self.collectionView?.indexPathsForVisibleItems)!)
+                            self.collectionView?.performBatchUpdates({
+                                //self.collectionView?.numberOfItems(inSection: 0)
+                                let indexSet = IndexSet(integer: 0)
+                                self.collectionView?.reloadSections(indexSet)
+                            }, completion: nil)
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }
+                
+            })
+            pageNum += 1
+            
+        }
+        
     }
     
     

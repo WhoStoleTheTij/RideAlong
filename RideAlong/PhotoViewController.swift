@@ -10,7 +10,8 @@ import UIKit
 
 class PhotoViewController: UIViewController {
     
-    var photo: Photo!
+    var photoPhoto: Photo!
+    var route: Route!
     
     var connectionHandler = ConnectionHandler()
 
@@ -22,8 +23,8 @@ class PhotoViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        if photo != nil && photo.image != nil{
-            self.imageView.image = UIImage(data: photo.image! as Data)
+        if photoPhoto != nil && photoPhoto.image != nil{
+            self.imageView.image = UIImage(data: photoPhoto.image! as Data)
         }
     }
 
@@ -46,8 +47,8 @@ class PhotoViewController: UIViewController {
     //Mark: load photos from flickr for the same location as the user photo
     @IBAction func loadMorePhotos(_ sender: Any) {
         
-        let latitude = self.photo.latitude
-        let longitude = self.photo.longitude
+        let latitude = self.photoPhoto.latitude
+        let longitude = self.photoPhoto.longitude
         
         self.connectionHandler.fetchImagesForLocation(longitude: String(longitude), latitude: String(latitude), pageNumber: 1) { (results, error) in
             
@@ -71,6 +72,8 @@ class PhotoViewController: UIViewController {
                     let imageCollectionViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImageCollectionViewController") as! ImageCollectionViewController
                     imageCollectionViewController.photos = photoCollection
                     imageCollectionViewController.pageCount = pageCount
+                    imageCollectionViewController.route = self.route
+                    imageCollectionViewController.photo = self.photoPhoto
                     
                     self.navigationController?.pushViewController(imageCollectionViewController, animated:true)
                     
