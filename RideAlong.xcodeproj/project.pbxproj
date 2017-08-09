@@ -30,6 +30,9 @@
 		417745A21F35D7CA000E06E8 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745A01F35D7CA000E06E8 /* CoreDataHandler.swift */; };
 		417745B61F35DC44000E06E8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 417745B51F35DC44000E06E8 /* Reachability.m */; };
 		417745B91F35F2A2000E06E8 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745B81F35F2A2000E06E8 /* ErrorMessage.swift */; };
+		41A75A7A1F3B8D6200FD6867 /* RoutePhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A75A791F3B8D6200FD6867 /* RoutePhotoCollectionViewController.swift */; };
+		41A75A7C1F3B8EAE00FD6867 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A75A7B1F3B8EAE00FD6867 /* PhotoCollectionViewCell.swift */; };
+		41A75A7E1F3B9BB900FD6867 /* LocationPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A75A7D1F3B9BB900FD6867 /* LocationPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		417745B41F35DC44000E06E8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		417745B51F35DC44000E06E8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		417745B81F35F2A2000E06E8 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		41A75A791F3B8D6200FD6867 /* RoutePhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		41A75A7B1F3B8EAE00FD6867 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		41A75A7D1F3B9BB900FD6867 /* LocationPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,8 @@
 				4155E91B1F33AE6900AA161E /* RouteTableViewController.swift */,
 				4155E91D1F33AEA100AA161E /* ImageCollectionViewController.swift */,
 				4155E91F1F33AEC000AA161E /* PhotoViewController.swift */,
+				41A75A791F3B8D6200FD6867 /* RoutePhotoCollectionViewController.swift */,
+				41A75A7D1F3B9BB900FD6867 /* LocationPhotoViewController.swift */,
 			);
 			name = "Route Review";
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				4155E9221F33AEF300AA161E /* ImageCollectionViewCell.swift */,
+				41A75A7B1F3B8EAE00FD6867 /* PhotoCollectionViewCell.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -270,8 +279,11 @@
 				4151F04F1F3738F300E0F539 /* ConnectionHandler.swift in Sources */,
 				4155E91A1F33AE3800AA161E /* AddImageViewController.swift in Sources */,
 				4155E9181F33A79F00AA161E /* Model.xcdatamodeld in Sources */,
+				41A75A7E1F3B9BB900FD6867 /* LocationPhotoViewController.swift in Sources */,
 				4155E91E1F33AEA100AA161E /* ImageCollectionViewController.swift in Sources */,
+				41A75A7C1F3B8EAE00FD6867 /* PhotoCollectionViewCell.swift in Sources */,
 				412C30891F38F36C00FC8A6C /* PhotoItem.swift in Sources */,
+				41A75A7A1F3B8D6200FD6867 /* RoutePhotoCollectionViewController.swift in Sources */,
 				4155E9201F33AEC000AA161E /* PhotoViewController.swift in Sources */,
 				4155E9231F33AEF300AA161E /* ImageCollectionViewCell.swift in Sources */,
 				4155E91C1F33AE6900AA161E /* RouteTableViewController.swift in Sources */,

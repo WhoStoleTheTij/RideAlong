@@ -36,7 +36,10 @@ class ImageCollectionViewController: UICollectionViewController, UICollectionVie
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
 
         // Do any additional setup after loading the view.
+        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -78,16 +81,25 @@ class ImageCollectionViewController: UICollectionViewController, UICollectionVie
         
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
+        let image = cell.imageView.image
+        
+        let locationPhotoViewController = self.storyboard?.instantiateViewController(withIdentifier: "LocationPhotoViewController") as! LocationPhotoViewController
+        locationPhotoViewController.route = self.route
+        locationPhotoViewController.image = image
+        locationPhotoViewController.photo = self.photo
+
+        self.navigationController?.pushViewController(locationPhotoViewController, animated: true)
+        
+        
+    }
 
     // MARK: UICollectionViewDelegate
-
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        //infinite scroll
-        /*
-         If indexPath.row == photos.count - 1 (or whatever)
-         load images if the scroll direction is down
-         
-         */
+        
         if indexPath.row == photos.count - 4{
             
             let latitude = self.photo.latitude
@@ -109,12 +121,7 @@ class ImageCollectionViewController: UICollectionViewController, UICollectionVie
                         }
                         
                         DispatchQueue.main.async {
-                            //self.collectionView?.reloadData()
-                            //self.collectionView?.layoutIfNeeded()
-                            //self.collectionView?.numberOfItems(inSection: 0)
-                            //self.collectionView?.reloadItems(at: (self.collectionView?.indexPathsForVisibleItems)!)
                             self.collectionView?.performBatchUpdates({
-                                //self.collectionView?.numberOfItems(inSection: 0)
                                 let indexSet = IndexSet(integer: 0)
                                 self.collectionView?.reloadSections(indexSet)
                             }, completion: nil)
@@ -148,6 +155,10 @@ class ImageCollectionViewController: UICollectionViewController, UICollectionVie
     //Mark: return minimum interim spacing - called when layout is invalidated
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(3.0)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.flowLayout.invalidateLayout()
     }
 
 }

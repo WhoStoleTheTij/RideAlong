@@ -14,6 +14,8 @@ class PhotoViewController: UIViewController {
     var route: Route!
     
     var connectionHandler = ConnectionHandler()
+    
+    let activityView = UIActivityIndicatorView()
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -47,6 +49,12 @@ class PhotoViewController: UIViewController {
     //Mark: load photos from flickr for the same location as the user photo
     @IBAction func loadMorePhotos(_ sender: Any) {
         
+        activityView.activityIndicatorViewStyle = .whiteLarge
+        activityView.frame.size = self.view.frame.size
+        activityView.color = UIColor.cyan
+        activityView.startAnimating()
+        self.view.addSubview(activityView)
+        
         let latitude = self.photoPhoto.latitude
         let longitude = self.photoPhoto.longitude
         
@@ -75,15 +83,31 @@ class PhotoViewController: UIViewController {
                     imageCollectionViewController.route = self.route
                     imageCollectionViewController.photo = self.photoPhoto
                     
-                    self.navigationController?.pushViewController(imageCollectionViewController, animated:true)
+                    DispatchQueue.main.async {
+                        self.activityView.stopAnimating()
+                        self.activityView.removeFromSuperview()
+                        self.navigationController?.pushViewController(imageCollectionViewController, animated:true)
+                    }
+                    
+                    
+                    
                     
                     
                 }else{
-                    
+                    DispatchQueue.main.async {
+                        self.activityView.stopAnimating()
+                        self.activityView.removeFromSuperview()
+                    }
                 }
                 
             }else{
-                ErrorMessage.displayErrorMessage(message: error!, view: self)
+                DispatchQueue.main.async {
+                    self.activityView.stopAnimating()
+                    self.activityView.removeFromSuperview()
+                    ErrorMessage.displayErrorMessage(message: error!, view: self)
+                }
+                
+                
             }
             
             
