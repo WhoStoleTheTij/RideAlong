@@ -39,7 +39,7 @@ If the user selects an image from the selection of images for the same location 
 
 Build, Run Access
 
-This app has no logins or other special requirements. 
+This app has no logins or other special requirements other than adding your own Flickr API key to the Constants.swift file.
 
 Please run the app on a device or the simulator.
 
