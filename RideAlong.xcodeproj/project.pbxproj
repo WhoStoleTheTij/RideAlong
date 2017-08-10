@@ -30,7 +30,7 @@
 		417745A21F35D7CA000E06E8 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745A01F35D7CA000E06E8 /* CoreDataHandler.swift */; };
 		417745B61F35DC44000E06E8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 417745B51F35DC44000E06E8 /* Reachability.m */; };
 		417745B91F35F2A2000E06E8 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417745B81F35F2A2000E06E8 /* ErrorMessage.swift */; };
-		419BC4E11F3CE4D800845E49 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 419BC4E01F3CE4D800845E49 /* README.md */; };
+		419BC4E31F3CF51C00845E49 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 419BC4E21F3CF51C00845E49 /* README.md */; };
 		41A75A7A1F3B8D6200FD6867 /* RoutePhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A75A791F3B8D6200FD6867 /* RoutePhotoCollectionViewController.swift */; };
 		41A75A7C1F3B8EAE00FD6867 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A75A7B1F3B8EAE00FD6867 /* PhotoCollectionViewCell.swift */; };
 		41A75A7E1F3B9BB900FD6867 /* LocationPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A75A7D1F3B9BB900FD6867 /* LocationPhotoViewController.swift */; };
@@ -64,7 +64,7 @@
 		417745B41F35DC44000E06E8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		417745B51F35DC44000E06E8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		417745B81F35F2A2000E06E8 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
-		419BC4E01F3CE4D800845E49 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		419BC4E21F3CF51C00845E49 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		41A75A791F3B8D6200FD6867 /* RoutePhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		41A75A7B1F3B8EAE00FD6867 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		41A75A7D1F3B9BB900FD6867 /* LocationPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPhotoViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		415AD4D71F2DFC7500E791CD = {
 			isa = PBXGroup;
 			children = (
-				419BC4E01F3CE4D800845E49 /* README.md */,
+				419BC4E21F3CF51C00845E49 /* README.md */,
 				415AD4E21F2DFC7500E791CD /* RideAlong */,
 				415AD4E11F2DFC7500E791CD /* Products */,
 			);
@@ -261,7 +261,6 @@
 			files = (
 				415AD4EE1F2DFC7500E791CD /* LaunchScreen.storyboard in Resources */,
 				415AD4EB1F2DFC7500E791CD /* Assets.xcassets in Resources */,
-				419BC4E11F3CE4D800845E49 /* README.md in Resources */,
 				415AD4E91F2DFC7500E791CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +278,7 @@
 				417745B91F35F2A2000E06E8 /* ErrorMessage.swift in Sources */,
 				417745A11F35D7CA000E06E8 /* Constants.swift in Sources */,
 				412C30851F38F33300FC8A6C /* Photo+CoreDataProperties.swift in Sources */,
+				419BC4E31F3CF51C00845E49 /* README.md in Sources */,
 				4155E9151F33A6B900AA161E /* ViewRouteViewController.swift in Sources */,
 				4151F04F1F3738F300E0F539 /* ConnectionHandler.swift in Sources */,
 				4155E91A1F33AE3800AA161E /* AddImageViewController.swift in Sources */,
