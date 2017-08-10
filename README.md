@@ -10,7 +10,7 @@
 \
 RideAlong is an app that will record the route you travel.\
 \
-The idea behind this app is to record the route you have ridden when on a motorbike when out for a directionless fun ride rather than a commute.\
+The idea behind this app is to record the route you have ridden when on a motorbike and out for a directionless fun ride rather than a commute.\
 \
 \
 
