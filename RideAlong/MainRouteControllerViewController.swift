@@ -99,7 +99,8 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
     @IBAction func startRoute(_ sender: Any) {
         
         if recordingLocations{
-            
+            self.navigationController?.navigationBar.isUserInteractionEnabled = true
+            self.navigationController?.navigationBar.tintColor = UIColor.blue
             self.locationManager.stopUpdatingLocation()
             self.startRouteButton.setTitle("Start Route", for: .normal)
             self.addImageButton.isEnabled = false
@@ -111,7 +112,8 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
             if (self.nameTextfield.text?.isEmpty)!{
                 ErrorMessage.displayErrorMessage(message: "Please enter a name first", view: self)
             }else{
-                
+                self.navigationController?.navigationBar.isUserInteractionEnabled = false
+                self.navigationController?.navigationBar.tintColor = UIColor.lightGray
                 self.route = Route(name: self.nameTextfield.text!, context: self.stack.context)
                 self.stack.save()
                 self.addImageButton.isEnabled = true
