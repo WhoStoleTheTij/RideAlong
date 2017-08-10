@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "Cell"
 
@@ -14,14 +15,22 @@ class RoutePhotoCollectionViewController: UICollectionViewController, UICollecti
     
     var route: Route!
     
+    var latitude: Double!
+    var longitude: Double!
+    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
+    var stack: CoreDataHandler! = nil
+    
+    var locationPhotos: [Photo]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.stack = appDelegate.stack
+        
+        locationPhotos = self.photosForLocation(latitude: self.latitude, longitude: self.longitude)
 
         // Register cell classes
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -31,7 +40,26 @@ class RoutePhotoCollectionViewController: UICollectionViewController, UICollecti
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        locationPhotos = self.photosForLocation(latitude: self.latitude, longitude: self.longitude)
         self.collectionView?.reloadData()
+    }
+    
+    func photosForLocation(latitude: Double, longitude: Double) -> [Photo]?{
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
+        
+        let latPredicate = NSPredicate(format: "latitude == %@", argumentArray: [latitude])
+        let longPredicate = NSPredicate(format: "longitude == %@", argumentArray: [longitude])
+        let routePredicate = NSPredicate(format: "route == %@", argumentArray: [self.route])
+        let predicate = NSCompoundPredicate(type: .and, subpredicates: [latPredicate, longPredicate, routePredicate])
+        
+        fetchRequest.predicate = predicate
+        
+        if let photos = try? self.stack.context.fetch(fetchRequest) as? [Photo]{
+            return photos
+        }
+        return nil
+        
     }
 
     // MARK: UICollectionViewDataSource
@@ -44,13 +72,13 @@ class RoutePhotoCollectionViewController: UICollectionViewController, UICollecti
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return self.route.photos!.count
+        return self.locationPhotos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCollectionViewCell
     
-        let photo = self.route.photos?.allObjects[indexPath.row] as! Photo
+        let photo = self.locationPhotos[indexPath.row] 
         
         cell.imageView.image = UIImage(data: photo.image! as Data)
     
@@ -61,11 +89,11 @@ class RoutePhotoCollectionViewController: UICollectionViewController, UICollecti
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let photo = self.route.photos?.allObjects[indexPath.row]
+        let photo = self.locationPhotos[indexPath.row]
         
         let photoViewController = self.storyboard?.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
         photoViewController.route = self.route
-        photoViewController.photoPhoto = photo as! Photo
+        photoViewController.photoPhoto = photo
         
         self.collectionView?.deselectItem(at: indexPath, animated: true)
         self.navigationController?.pushViewController(photoViewController, animated: true)

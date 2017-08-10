@@ -52,7 +52,7 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
     //Mark: Custom navigation controller back button
     func backButtonAction(sender: UIBarButtonItem){
         if recordingLocations{
-            print("Stopping route")
+            
             self.locationManager.stopUpdatingLocation()
             self.startRouteButton.setTitle("Start Route", for: .normal)
             self.addImageButton.isEnabled = false
@@ -95,23 +95,11 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
         return MKPolylineRenderer()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
     //Mark: start the route recording
     @IBAction func startRoute(_ sender: Any) {
         
         if recordingLocations{
-            print("Stopping route")
+            
             self.locationManager.stopUpdatingLocation()
             self.startRouteButton.setTitle("Start Route", for: .normal)
             self.addImageButton.isEnabled = false
@@ -123,7 +111,7 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
             if (self.nameTextfield.text?.isEmpty)!{
                 ErrorMessage.displayErrorMessage(message: "Please enter a name first", view: self)
             }else{
-                print("Starting route")
+                
                 self.route = Route(name: self.nameTextfield.text!, context: self.stack.context)
                 self.stack.save()
                 self.addImageButton.isEnabled = true

@@ -22,14 +22,6 @@ class RouteTableViewController: UITableViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.stack = appDelegate.stack
-        
-        //self.routes = self.fetchRoutes()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     //Mark: reload the routes when the view is displayed
@@ -48,11 +40,6 @@ class RouteTableViewController: UITableViewController {
         routes = try! self.stack.context.fetch(fetchRequest) as! [Route]
         
         return routes
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -116,18 +103,6 @@ class RouteTableViewController: UITableViewController {
         viewRouteViewController.route = route
         self.navigationController?.pushViewController(viewRouteViewController, animated: true)
         
-        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

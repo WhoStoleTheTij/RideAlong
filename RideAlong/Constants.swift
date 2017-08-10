@@ -40,7 +40,7 @@ struct Constants{
         static let apiKey = "aca091179863d8ba6c28c0cee5c2d067"
         static let mediumUrl = "url_m"
         static let safe = "1"
-        static let radius = "5"
+        static let radius = "1"
         static let responseFormat = "json"
         static let disableJsonCallback = "1"
         static let pageLimit = "24"

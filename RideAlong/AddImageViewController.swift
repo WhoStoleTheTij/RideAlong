@@ -28,24 +28,6 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     //Mark: Take a photo
     func takePhoto(){
         let pickerController = UIImagePickerController()
@@ -62,8 +44,6 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
     }
 
     @IBAction func takePhoto(_ sender: Any) {
-        
-        
         
         let alert = UIAlertController(title: "Add Image", message:"", preferredStyle: .actionSheet)
         

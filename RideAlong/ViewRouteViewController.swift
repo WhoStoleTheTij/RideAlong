@@ -61,11 +61,6 @@ class ViewRouteViewController: UIViewController, CLLocationManagerDelegate, MKMa
                 
                 
                 
-            }else{
-                //let spanX = 0.007
-                //let spanY = 0.007
-                //let region = MKCoordinateRegion(center: locationPoints[0].coordinate, span: MKCoordinateSpanMake(spanX, spanY))
-                //self.mapView.setRegion(region, animated: true)
             }
             
             let startCood = locationPoints[0]
@@ -113,6 +108,8 @@ class ViewRouteViewController: UIViewController, CLLocationManagerDelegate, MKMa
             
             let routePhotoCollectionView = self.storyboard?.instantiateViewController(withIdentifier: "RoutePhotoCollectionViewController") as! RoutePhotoCollectionViewController
             routePhotoCollectionView.route = self.route
+            routePhotoCollectionView.latitude = point.coordinate.latitude
+            routePhotoCollectionView.longitude = point.coordinate.longitude
             
             self.navigationController?.pushViewController(routePhotoCollectionView, animated: true)
             
@@ -147,16 +144,5 @@ class ViewRouteViewController: UIViewController, CLLocationManagerDelegate, MKMa
         return nil
         
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
