@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MainRouteControllerViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MainRouteControllerViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -31,6 +31,8 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
 
         // Do any additional setup after loading the view.
         
+        self.nameTextfield.delegate = self
+        
         self.locationManager = CLLocationManager()
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -47,6 +49,53 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target:self, action:#selector(MainRouteControllerViewController.backButtonAction(sender:)) )
         self.navigationItem.leftBarButtonItem = newBackButton
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.subscribeToKeyboardNotification()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.unsubscribeToKeyboardNoticifations()
+    }
+    
+    //Mar: setup the keyboard hide/show subscriptions
+    func subscribeToKeyboardNotification(){
+        NotificationCenter.default.addObserver(self, selector: #selector(MainRouteControllerViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainRouteControllerViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object:nil)
+    }
+    
+    //Mark: called when the keyboard shows
+    func keyboardWillShow(notification: NSNotification){
+        self.view.frame.origin.y = -getKeyboardHeight(notification: notification)
+    }
+    
+    //Mark: get the height of the keyboard - will return zero if the activeTextfield is not the bottom textfield
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat{
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    
+    //Mark: called when the keyboard hides
+    func keyboardWillHide(notification: NSNotification){
+        self.view.frame.origin.y = 0
+    }
+    
+    //Mark: remove the keyboard hide/show subscriptions
+    func unsubscribeToKeyboardNoticifations(){
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object:nil)
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object:nil)
+    }
+    
+    //Mark: dismiss the keyboard when the enter key is pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     //Mark: Custom navigation controller back button

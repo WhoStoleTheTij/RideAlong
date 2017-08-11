@@ -29,17 +29,10 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     //Mark: Take a photo
-    func takePhoto(){
+    func addPhoto(source: UIImagePickerControllerSourceType){
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = .camera
-        self.present(pickerController, animated: true, completion: nil)
-    }
-    
-    func photoAlbum(){
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .photoLibrary
+        pickerController.sourceType = source
         self.present(pickerController, animated: true, completion: nil)
     }
 
@@ -49,11 +42,11 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             
-            let photoAction = UIAlertAction(title:"Take Photo", style: .default, handler: {_ in self.takePhoto()})
+            let photoAction = UIAlertAction(title:"Take Photo", style: .default, handler: {_ in self.addPhoto(source: .camera)})
             alert.addAction(photoAction)
         }
         
-        let albumAction = UIAlertAction(title: "Photo Album", style: .default, handler: {_ in self.photoAlbum()})
+        let albumAction = UIAlertAction(title: "Photo Album", style: .default, handler: {_ in self.addPhoto(source: .photoLibrary)})
         alert.addAction(albumAction)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

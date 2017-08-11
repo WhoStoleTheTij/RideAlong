@@ -27,56 +27,64 @@ class ViewRouteViewController: UIViewController, CLLocationManagerDelegate, MKMa
 
         // Do any additional setup after loading the view.
         
-        let locationPoints = self.route.points as! [CLLocation]
-        print(locationPoints.count)
-        if locationPoints.count > 1{
-            
-            var coordinates = locationPoints.map({ (location: CLLocation!) -> CLLocationCoordinate2D in
-                return location.coordinate
-            })
-            
-            let polyline = MKPolyline(coordinates: &coordinates, count: locationPoints.count)
-            self.mapView.add(polyline)
-            
-            //if the route has photos, add a pin at the location it was taken
-            if (self.route.photos?.count)! > 0{
-                var annotations = [MKPointAnnotation]()
-                let photos = self.route.photos?.allObjects as! [Photo]
-
-                for photo in photos{
+        if (self.route.points?.count)! > 0{
+            let locationPoints = self.route.points as! [CLLocation]
+            print(locationPoints.count)
+            if locationPoints.count > 1{
+                
+                //if there are more than five location points, start to draw the route
+                if locationPoints.count > 5{
+                    var coordinates = locationPoints.map({ (location: CLLocation!) -> CLLocationCoordinate2D in
+                        return location.coordinate
+                    })
                     
-                    let lat = CLLocationDegrees(photo.latitude)
-                    let long = CLLocationDegrees(photo.longitude)
-                    
-                    let coord = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = coord
-                    
-                    annotations.append(annotation)
+                    let polyline = MKPolyline(coordinates: &coordinates, count: locationPoints.count)
+                    self.mapView.add(polyline)
                 }
                 
-                self.mapView.addAnnotations(annotations)
                 
+                //if the route has photos, add a pin at the location it was taken
+                if (self.route.photos?.count)! > 0{
+                    var annotations = [MKPointAnnotation]()
+                    let photos = self.route.photos?.allObjects as! [Photo]
+                    
+                    for photo in photos{
+                        
+                        let lat = CLLocationDegrees(photo.latitude)
+                        let long = CLLocationDegrees(photo.longitude)
+                        
+                        let coord = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                        
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = coord
+                        
+                        annotations.append(annotation)
+                    }
+                    
+                    self.mapView.addAnnotations(annotations)
+                    
+                    
+                    
+                    
+                }
                 
+                let startCood = locationPoints[0]
+                let endCoord = locationPoints[locationPoints.count - 1]
                 
+                let startAnnotation = MKPointAnnotation()
+                startAnnotation.coordinate = startCood.coordinate
+                
+                let endAnnotation = MKPointAnnotation()
+                endAnnotation.coordinate = endCoord.coordinate
+                
+                self.mapView.showAnnotations([startAnnotation, endAnnotation], animated: true)
+                //remove the first and last pin as they are not linked to photos
+                self.mapView.removeAnnotations([startAnnotation, endAnnotation])
                 
             }
-            
-            let startCood = locationPoints[0]
-            let endCoord = locationPoints[locationPoints.count - 1]
-            
-            let startAnnotation = MKPointAnnotation()
-            startAnnotation.coordinate = startCood.coordinate
-            
-            let endAnnotation = MKPointAnnotation()
-            endAnnotation.coordinate = endCoord.coordinate
-            
-            self.mapView.showAnnotations([startAnnotation, endAnnotation], animated: true)
-            //remove the first and last pin as they are not linked to photos
-            self.mapView.removeAnnotations([startAnnotation, endAnnotation])
-            
         }
+        
+        
         
     }
     
