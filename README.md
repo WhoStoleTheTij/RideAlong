@@ -1,4 +1,4 @@
-#**RideAlong**
+# **RideAlong**
 
 RideAlong is an app that will record the route you travel.
 
@@ -7,7 +7,7 @@ The idea behind this app is to record the route you have ridden when on a motorb
 
 
 
-#**Route Recorder:**
+## **Route Recorder:**
 
 This small selection of screens allow the user to start to record a route. Once the choice to record a route has been made the user needs to enter a route name before recording can begin. 
 
@@ -21,7 +21,7 @@ After the user has finished their journey they are able to stop the route record
 
 
 
-#**Route Review:**
+## **Route Review:**
 
 This selection of screen allows the user to review and revisit their recorded journeys.
 
@@ -37,7 +37,7 @@ If the user selects an image from the selection of images for the same location 
 
 
 
-#**Build, Run Access**
+## **Build, Run Access**
 
 This app has no logins or other special requirements other than adding your own Flickr API key to the Constants.swift file.
 
