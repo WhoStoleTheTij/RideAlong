@@ -100,11 +100,6 @@ class ViewRouteViewController: UIViewController, CLLocationManagerDelegate, MKMa
         return MKPolylineRenderer()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //Mark: display the user photo for the selected pin
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let point = view.annotation as! MKPointAnnotation

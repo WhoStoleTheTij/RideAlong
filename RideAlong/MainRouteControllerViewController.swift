@@ -153,6 +153,7 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
             self.locationManager.stopUpdatingLocation()
             self.startRouteButton.setTitle("Start Route", for: .normal)
             self.addImageButton.isEnabled = false
+            self.route = Route(name: self.nameTextfield.text!, context: self.stack.context)
             self.route.points = self.locationPoints as NSArray
             self.stack.save()
             self.navigationController?.popViewController(animated: true)
@@ -163,8 +164,8 @@ class MainRouteControllerViewController: UIViewController, CLLocationManagerDele
             }else{
                 self.navigationController?.navigationBar.isUserInteractionEnabled = false
                 self.navigationController?.navigationBar.tintColor = UIColor.lightGray
-                self.route = Route(name: self.nameTextfield.text!, context: self.stack.context)
-                self.stack.save()
+                
+                //self.stack.save()
                 self.addImageButton.isEnabled = true
                 self.mapView.showsUserLocation = true
                 self.locationManager.startUpdatingLocation()
